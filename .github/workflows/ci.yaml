@@ -1,0 +1,25 @@
+name: CI
+on: [push]
+jobs:
+  eslint:
+    name: Check Code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+        
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install Packages
+        run : npm ci
+      
+      - name: Start App
+        run: (node api/index.js)&
+      
+      
+      
+      
